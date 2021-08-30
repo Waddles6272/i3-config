@@ -8,7 +8,17 @@
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
 set $mod Mod4
+
+# Gaps
+for_window [class=".*"] border pixel 0
+gaps inner5
+gaps outer 5
+# Smart
+smart_gaps on
+smart_borders on
+smart_borders no_gaps
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -119,12 +129,12 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Terminals"
 set $ws2 "2: Firefox"
-set $ws3 "3: Atom"
-set $ws4 "4"
-set $ws5 "5"
+set $ws3 "3: Discord"
+set $ws4 "4: VSCode"
+set $ws5 "5: Duskers"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8: Discord"
+set $ws8 "8"
 set $ws9 "9: Gedit"
 set $ws10 "10: Music"
 
@@ -207,22 +217,24 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # i3lock
-bindsym $mod+shift+x exec i3lock --color "$bg-color"
+bindsym $mod+shift+x exec i3lock -i ~/Pictures/tesseract.png
 
 # Executed Programs on Start-up
 exec gnome-terminal
 exec firefox
-exec atom
 exec discord
+exec code
 exec gedit
 exec rhythmbox
-exec_always feh --bg-scale /home/bard/Pictures/planets.png
+exec_always feh --bg-scale /home/spaceman/Pictures/japanese_nasa.png
 
 # Workspace Assigning
 assign[class="Gnome-terminal"] $ws1
 assign[class="Firefox"] $ws2
-assign[class="Atom"] $ws3
-assign[class="discord"] $ws8
+assign[class="discord"] $ws3
+assign[class="Code"] $ws4
+assign[class="Steam"] $ws5
+assign[class="Duskers"] $ws5
 assign[class="Gedit"] $ws9
 assign[class="Rhythmbox"] $ws10
 
